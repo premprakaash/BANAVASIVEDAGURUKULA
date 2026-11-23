@@ -29,10 +29,10 @@ npm run preview    # preview the production build
 `.github/workflows/ci-cd.yml` runs on every push and pull request to `main`:
 
 1. **Build** — installs with `npm ci` and runs `npm run build`. Pull requests stop here, so a broken build is caught before merging.
-2. **Deploy** — on pushes to `main`, the build is published to GitHub Pages at
-   **https://premprakaash.github.io/banavasivedagurukula/**
+2. **Deploy** — on pushes to `main`, the build is uploaded over SSH to the Hostinger VPS and served at
+   **https://banavasivedagurukula.org**
 
-One-time setup: in the repo go to **Settings → Pages → Build and deployment → Source** and choose **GitHub Actions**.
+One-time server and secrets setup: see **[DEPLOYMENT.md](DEPLOYMENT.md)**.
 You can also re-run a deploy by hand from the **Actions** tab (“Run workflow”).
 
 ## Enquiry form

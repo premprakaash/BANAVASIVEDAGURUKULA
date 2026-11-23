@@ -32,33 +32,80 @@ jobs:
         run: npm ci
 
       - name: Build
-        env:
-          # Serve from https://<user>.github.io/<repo>/
-          BASE_PATH: /${{ github.event.repository.name }}/
         run: npm run build
 
-      - name: Add SPA fallback for GitHub Pages
-        # Lets /about and /contact load directly or on refresh.
-        run: cp dist/index.html dist/404.html
-
-      - name: Upload Pages artifact
+      - name: Upload build
         if: github.event_name != 'pull_request'
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
+          name: site
           path: dist
+          retention-days: 7
 
   deploy:
-    name: Deploy to GitHub Pages
+    name: Deploy to Hostinger VPS
     needs: build
     if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
     environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      name: production
+      url: https://banavasivedagurukula.org
+    env:
+      VPS_HOST: ${{ secrets.VPS_HOST }}
+      VPS_USER: ${{ secrets.VPS_USER }}
+      VPS_PORT: ${{ secrets.VPS_PORT || '22' }}
+      VPS_DEPLOY_PATH: ${{ secrets.VPS_DEPLOY_PATH || '/var/www/banavasivedagurukula.org' }}
     steps:
-      - name: Deploy
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Check deploy secrets
+        env:
+          VPS_SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
+        run: |
+          missing=""
+          [ -z "$VPS_HOST" ] && missing="$missing VPS_HOST"
+          [ -z "$VPS_USER" ] && missing="$missing VPS_USER"
+          [ -z "$VPS_SSH_KEY" ] && missing="$missing VPS_SSH_KEY"
+          if [ -n "$missing" ]; then
+            echo "::error::Missing repository secrets:$missing (Settings → Secrets and variables → Actions). See DEPLOYMENT.md."
+            exit 1
+          fi
+
+      - name: Download build
+        uses: actions/download-artifact@v4
+        with:
+          name: site
+          path: dist
+
+      - name: Set up SSH
+        env:
+          VPS_SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
+          VPS_KNOWN_HOSTS: ${{ secrets.VPS_KNOWN_HOSTS }}
+        run: |
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          printf '%s\n' "$VPS_SSH_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          if [ -n "$VPS_KNOWN_HOSTS" ]; then
+            printf '%s\n' "$VPS_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          else
+            ssh-keyscan -p "$VPS_PORT" -H "$VPS_HOST" > ~/.ssh/known_hosts
+          fi
+          chmod 644 ~/.ssh/known_hosts
+
+      - name: Upload site with rsync
+        run: |
+          rsync -az --delete \
+            -e "ssh -i ~/.ssh/deploy_key -p $VPS_PORT" \
+            dist/ "$VPS_USER@$VPS_HOST:$VPS_DEPLOY_PATH/"
+
+      - name: Check the live site
+        run: |
+          sleep 5
+          code=$(curl -s -o /dev/null -w '%{http_code}' https://banavasivedagurukula.org/ || true)
+          echo "https://banavasivedagurukula.org/ returned HTTP $code"
+          if [ "$code" != "200" ]; then
+            echo "::warning::Files were uploaded, but the site did not return 200. Check DNS, Nginx and SSL (DEPLOYMENT.md)."
+          fi
+
+      - name: Remove SSH key
+        if: always()
+        run: rm -f ~/.ssh/deploy_key
