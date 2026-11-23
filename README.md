@@ -24,6 +24,17 @@ npm run preview    # preview the production build
 - **Colours & fonts**: the variables at the top of `src/index.css`.
 - **Page text**: `src/pages/Home.jsx`, `About.jsx`, `Contact.jsx`.
 
+## CI/CD (GitHub Actions)
+
+`.github/workflows/ci-cd.yml` runs on every push and pull request to `main`:
+
+1. **Build** — installs with `npm ci` and runs `npm run build`. Pull requests stop here, so a broken build is caught before merging.
+2. **Deploy** — on pushes to `main`, the build is uploaded over SSH to the Hostinger VPS and served at
+   **https://banavasivedagurukula.org**
+
+One-time server and secrets setup: see **[DEPLOYMENT.md](DEPLOYMENT.md)**.
+You can also re-run a deploy by hand from the **Actions** tab (“Run workflow”).
+
 ## Enquiry form
 
 The form currently shows a thank-you message only. Connect it to a backend, Formspree, EmailJS or Google Forms in `handleSubmit` inside `src/pages/Contact.jsx`.
