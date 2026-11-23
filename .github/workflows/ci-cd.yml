@@ -93,7 +93,7 @@ jobs:
 
       - name: Upload site with rsync
         run: |
-          rsync -az --delete \
+          rsync -az --delete --exclude=".well-known" \
             -e "ssh -i ~/.ssh/deploy_key -p $VPS_PORT" \
             dist/ "$VPS_USER@$VPS_HOST:$VPS_DEPLOY_PATH/"
 
