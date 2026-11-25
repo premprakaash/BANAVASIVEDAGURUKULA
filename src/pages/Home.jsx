@@ -6,11 +6,11 @@ import { site, images, isSet } from '../data/site.js';
 const stats = [
   { value: site.foundedYear, label: 'Year founded' },
   { value: site.students, label: 'Resident vidyarthis' },
-  { value: site.shakha, label: 'Veda shakha taught' },
+  { value: 'Taittiriya', label: `${site.veda} shakha`, show: site.shakha },
   { value: `${site.ageRange} yrs`, label: 'Admission age (boys)' },
   { value: site.admissionYear, label: 'Academic year' },
   { value: '1800+', label: "Years of Banavasi's history" },
-].filter((s) => isSet(s.value));
+].filter((s) => isSet(s.show ?? s.value));
 
 const foundations = [
   { title: 'Veda Adhyayana', text: 'Oral learning of the Vedas with correct svara, exactly as handed down for generations.' },
@@ -85,7 +85,9 @@ export default function Home() {
               {isSet(site.foundedYear) && isSet(site.acharyaName)
                 ? `Founded in ${site.foundedYear} by ${site.acharyaName}, our gurukula teaches`
                 : 'Our gurukula teaches'} the Vedas the way they have
-              always been taught — by listening, repeating and living with the Guru. Alongside Veda patha, students
+              always been taught — by listening, repeating and living with the Guru. Vidyarthis learn the
+              {' '}{site.veda} ({site.shakha}).
+              Alongside Veda patha, students
               study English, Kannada, Mathematics, Science, Social Science, Sanskrit, Yoga and Computer Education.
             </p>
             <Link to="/about" className="text-link">

@@ -15,10 +15,11 @@ export const site = {
   visitingHours: '[Days and time]',
   foundedYear: '[YEAR]',
   acharyaName: '[ACHARYA NAME]',
-  shakha: '[SHAKHA]',
+  veda: 'Krishna Yajurveda',
+  shakha: 'Taittiriya Shakha',
   students: '[XX]',
   admissionYear: '2026 – 2027',
-  ageRange: '9–12',
+  ageRange: '9–14',
   youtube: 'https://www.youtube.com/@umamadhusoodan',
   instagram: 'https://www.instagram.com/banavasigurukula',
 };
@@ -44,7 +45,7 @@ export const academicSubjects = [
 // Admissions (ಪ್ರವೇಶ ಮಾಹಿತಿ)
 export const admissions = [
   { label: 'Admission for', value: 'Boys', kn: 'ಬಾಲಕರಿಗೆ ಪ್ರವೇಶ' },
-  { label: 'Age', value: '9 – 12 years (as per Gurukula norms)', kn: 'ಗುರುಕುಲ ನಿಯಮಾನುಸಾರ ವಯೋಮಿತಿ' },
+  { label: 'Age', value: '9 – 14 years (as per Gurukula norms)', kn: 'ಗುರುಕುಲ ನಿಯಮಾನುಸಾರ ವಯೋಮಿತಿ: 9 – 14 ವರ್ಷ' },
   { label: 'Selection', value: 'Interaction / interview', kn: 'ಸಂದರ್ಶನ / ಸಂವಾದದ ಮೂಲಕ ಆಯ್ಕೆ' },
   { label: 'Documents', value: 'Submitted at admission', kn: 'ಅಗತ್ಯ ದಾಖಲೆಗಳ ಸಲ್ಲಿಕೆ' },
   { label: 'Academic year', value: '2026 – 2027', kn: 'ಶೈಕ್ಷಣಿಕ ವರ್ಷ: 2026 – 2027' },
