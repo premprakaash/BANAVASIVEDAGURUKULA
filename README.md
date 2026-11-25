@@ -22,7 +22,9 @@ npm run preview    # preview the production build
 - **Gurukula details** (phone, email, Acharya name, founding year, etc.): `src/data/site.js`. Every page reads from here, so you only fill each `[PLACEHOLDER]` once.
 - **Photos**: `public/images/` — replace `logo.jpg`, `temple.jpg`, `gurukula-group.jpg` or add new ones and point to them in `site.js`.
 - **Colours & fonts**: the variables at the top of `src/index.css`.
-- **Page text**: `src/pages/Home.jsx`, `About.jsx`, `Contact.jsx`.
+- **Page text (English and Kannada)**: `src/i18n/strings.js` — every sentence on the site, in an `en` block and a `kn` block. Edit the matching line in each to change or correct a translation. Words in `{curly braces}` (phone, year, age) are filled in automatically.
+- **Language toggle**: the EN / ಕನ್ನಡ switch in the header changes the whole site and remembers the visitor's choice. Links can open a language directly with `?lang=kn` or `?lang=en` (e.g. `https://banavasivedagurukula.org/?lang=kn`).
+- **Layout**: `src/pages/Home.jsx`, `About.jsx`, `Contact.jsx`.
 
 ## CI/CD (GitHub Actions)
 

@@ -1,34 +1,23 @@
 import { Link } from 'react-router-dom';
 import SectionTitle from '../components/SectionTitle.jsx';
-import { site, images, academicSubjects } from '../data/site.js';
-
-const curriculum = [
-  ['Veda Adhyayana', `${site.veda}, ${site.shakha} — learned by heart with correct svara.`],
-  ['Sanskrit Bhasha', 'Reading, speaking and writing Sanskrit.'],
-  ['Shastra', 'Vyakarana and other shastras for seniors.'],
-  ['Prayoga', 'Sandhya, puja and Vedic karma in practice.'],
-  ['Yoga & Health', 'Asana, pranayama, play and sattvic food.'],
-];
-
-const yugas = [
-  ['Kritayuga', 'Kaumudi'],
-  ['Tretayuga', 'Baindavi'],
-  ['Dwaparayuga', 'Jayanti'],
-  ['Kaliyuga', 'Banavasi'],
-];
-
-const dynasties = ['Chutu', 'Satavahana', 'Kadamba', 'Rashtrakuta', 'Hoysala', 'Vijayanagara', 'Sode kings'];
+import { site, images } from '../data/site.js';
+import { strings } from '../i18n/strings.js';
+import { useLang, fill } from '../i18n/LanguageContext.jsx';
 
 export default function About() {
+  const { t, lang } = useLang();
+  const a = t.about;
+  const otherSubjects = strings[lang === 'en' ? 'kn' : 'en'].subjects;
+
   return (
     <>
       {/* Page hero */}
       <section className="section page-hero">
         <div className="container split split--center">
           <div className="split__text">
-            <p className="breadcrumb"><Link to="/">Home</Link> / About</p>
-            <h1 className="h1">About our gurukula</h1>
-            <p className="lead">Rooted in the parampara, growing in the sacred soil of Banavasi.</p>
+            <p className="breadcrumb"><Link to="/">{t.nav.home}</Link> / {a.breadcrumb}</p>
+            <h1 className="h1">{a.title}</h1>
+            <p className="lead">{a.lead}</p>
           </div>
           <div className="split__media">
             <img className="photo photo--group" src={images.group} alt="Vidyarthis with their Acharyas in front of the gurukula building" />
@@ -40,17 +29,13 @@ export default function About() {
       <section className="section section--white bordered-top">
         <div className="container story">
           <div className="story__title">
-            <SectionTitle eyebrow="OUR STORY" title="Keeping an ancient flame alive" />
+            <SectionTitle eyebrow={a.storyEyebrow} title={a.storyTitle} />
           </div>
           <div className="story__body">
             <p className="body-xl">
-              {site.fullName} began in {site.foundedYear} when {site.acharyaName} welcomed the first students to learn
-              the Vedas in the traditional way. [Add two or three sentences on how the gurukula started.]
+              {fill(a.story1, { fullName: t.common.fullName, year: site.foundedYear, acharya: site.acharyaName })}
             </p>
-            <p className="body-xl">
-              Today {site.students} vidyarthis live here with their Acharyas. They learn by listening and repeating, by
-              serving and observing — as students in India have done for thousands of years.
-            </p>
+            <p className="body-xl">{fill(a.story2, { students: site.students })}</p>
           </div>
         </div>
       </section>
@@ -59,8 +44,8 @@ export default function About() {
       <section className="section section--green motto">
         <div className="container container--narrow">
           <p className="motto__sanskrit">{site.motto}</p>
-          <p className="motto__meaning">“{site.mottoMeaning}”</p>
-          <p className="motto__source">MANUSMRITI 2.6 · OUR GUIDING MOTTO</p>
+          <p className="motto__meaning">“{t.common.mottoMeaning}”</p>
+          <p className="motto__source">{a.mottoSource}</p>
         </div>
       </section>
 
@@ -68,17 +53,16 @@ export default function About() {
       <section className="section">
         <div className="container cards-2">
           <div className="card">
-            <p className="eyebrow">VISION</p>
-            <p className="card__statement">Every mantra preserved, every student a living carrier of the Veda.</p>
-            <p className="body">To nurture a generation that holds Vedic knowledge with accuracy, understanding and humility.</p>
+            <p className="eyebrow">{a.visionEyebrow}</p>
+            <p className="card__statement">{a.vision}</p>
+            <p className="body">{a.visionText}</p>
           </div>
           <div className="card">
-            <p className="eyebrow">MISSION</p>
+            <p className="eyebrow">{a.missionEyebrow}</p>
             <ol className="mission-list">
-              <li>Teach the Vedas orally, with correct svara.</li>
-              <li>Build a strong foundation in Sanskrit and shastra.</li>
-              <li>Shape discipline and values through daily sadhana.</li>
-              <li>Keep learning free of commerce, supported by the community.</li>
+              {a.mission.map((m, i) => (
+                <li key={i}>{m}</li>
+              ))}
             </ol>
           </div>
         </div>
@@ -87,29 +71,29 @@ export default function About() {
       {/* Acharya */}
       <section className="section section--white bordered-top">
         <div className="container split split--center">
-          <div className="placeholder placeholder--portrait">[Acharya's photograph]</div>
+          <div className="placeholder placeholder--portrait">{a.acharyaPhoto}</div>
           <div className="split__text">
-            <SectionTitle eyebrow="OUR ACHARYA" title={site.acharyaName} />
-            <p className="role">Founder &amp; Pradhana Acharya</p>
-            <p className="body-lg">
-              [Two or three sentences on where and from whom the Acharya studied, which Veda shakha, and years of
-              teaching.]
-            </p>
+            <SectionTitle eyebrow={a.acharyaEyebrow} title={site.acharyaName} />
+            <p className="role">{a.acharyaRole}</p>
+            <p className="body-lg">{a.acharyaBio}</p>
             <div className="mini-stats">
-              <div><p className="mini-stats__value">Taittiriya</p><p className="mini-stats__label">{site.veda} shakha</p></div>
-              <div><p className="mini-stats__value">[XX] yrs</p><p className="mini-stats__label">Teaching</p></div>
-              <div><p className="mini-stats__value">[Pathashala]</p><p className="mini-stats__label">Studied at</p></div>
+              {a.acharyaStats.map((s, i) => (
+                <div key={i}>
+                  <p className="mini-stats__value">{s.value}</p>
+                  <p className="mini-stats__label">{s.label}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Curriculum */}
+      {/* Vedic curriculum */}
       <section className="section">
         <div className="container">
-          <SectionTitle eyebrow="CURRICULUM" title="What we teach" />
+          <SectionTitle eyebrow={a.curriculumEyebrow} title={a.curriculumTitle} />
           <div className="curriculum">
-            {curriculum.map(([name, text]) => (
+            {a.curriculum.map(([name, text]) => (
               <div className="curriculum__row" key={name}>
                 <span className="curriculum__name">{name}</span>
                 <span className="curriculum__text">{text}</span>
@@ -124,24 +108,18 @@ export default function About() {
         <div className="container">
           <div className="head-row head-row--dark">
             <div>
-              <p className="eyebrow">ACADEMIC EDUCATION · <span className="kn">ಲೌಕಿಕ ವಿದ್ಯೆ</span></p>
-              <h2 className="h2">Balanced learning beyond the Vedas</h2>
+              <p className="eyebrow">{a.academicEyebrow}</p>
+              <h2 className="h2">{a.academicTitle}</h2>
             </div>
             <div>
-              <p className="body">
-                Along with Vedic education, students are taught essential academic subjects to ensure balanced
-                intellectual growth.
-              </p>
-              <p className="kn kn--muted">
-                ವೇದ ವಿದ್ಯೆಯ ಜೊತೆಗೆ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಸಮತೋಲನಯುತ ಬೆಳವಣಿಗೆಯಿಗಾಗಿ ಲೌಕಿಕ ವಿದ್ಯೆಗಳನ್ನು ಕಲಿಸಲಾಗುತ್ತದೆ.
-              </p>
+              <p className="body">{a.academicText}</p>
             </div>
           </div>
           <ul className="subjects">
-            {academicSubjects.map((s) => (
-              <li key={s.en} className="subjects__item">
-                <span className="subjects__en">{s.en}</span>
-                <span className="kn subjects__kn">{s.kn}</span>
+            {t.subjects.map((s, i) => (
+              <li key={i} className="subjects__item">
+                <span className="subjects__en">{s}</span>
+                <span className="subjects__kn">{otherSubjects[i]}</span>
               </li>
             ))}
           </ul>
@@ -153,31 +131,24 @@ export default function About() {
         <div className="container">
           <div className="split">
             <div className="split__text">
-              <SectionTitle eyebrow="HERITAGE OF BANAVASI" title="The cradle of Karnataka history" light />
-              <p className="body-lg">
-                Banavasi in Uttara Kannada was the first kingdom of Kannada and the capital of the Kadamba dynasty. It
-                flourished from the 2nd century AD to the 19th century and is counted among the five ancient places of
-                Karnataka — there is hardly a Kannadiga who has not heard its name.
-              </p>
-              <p className="body-lg">
-                It is described in the Puranas and celebrated in Kalidasa's <em>Meghaduta</em>, in the heartfelt praise
-                of Adikavi Pampa, and in Chamarasa's <em>Prabhulingaleele</em>.
-              </p>
+              <SectionTitle eyebrow={a.heritageEyebrow} title={a.heritageTitle} light />
+              <p className="body-lg">{a.heritage1}</p>
+              <p className="body-lg">{a.heritage2}</p>
             </div>
             <div className="yuga-card">
-              <p className="eyebrow eyebrow--light">ONE TOWN, FOUR YUGAS</p>
-              {yugas.map(([yuga, name], i) => (
-                <div className="yuga-card__row" key={yuga}>
-                  <span>{yuga}</span>
-                  <strong className={i === 3 ? 'is-gold' : ''}>{name}</strong>
+              <p className="eyebrow eyebrow--light">{a.yugasTitle}</p>
+              {t.yugas.map((y, i) => (
+                <div className="yuga-card__row" key={i}>
+                  <span>{y.yuga}</span>
+                  <strong className={i === 3 ? 'is-gold' : ''}>{y.name}</strong>
                 </div>
               ))}
             </div>
           </div>
-          <p className="eyebrow eyebrow--light dynasties__label">DYNASTIES THAT SHAPED THE MADHUKESHWARA TEMPLE COMPLEX</p>
+          <p className="eyebrow eyebrow--light dynasties__label">{a.dynastiesTitle}</p>
           <div className="dynasties">
-            {dynasties.map((d) => (
-              <span key={d} className={d === 'Kadamba' ? 'dynasty is-gold' : 'dynasty'}>{d}</span>
+            {a.dynasties.map((d, i) => (
+              <span key={i} className={i === 2 ? 'dynasty is-gold' : 'dynasty'}>{d}</span>
             ))}
           </div>
         </div>
@@ -187,28 +158,18 @@ export default function About() {
       <section className="section section--white">
         <div className="container split">
           <div className="split__text">
-            <SectionTitle eyebrow="SHRI MADHUKESHWARA TEMPLE" title="A temple of sculptures" />
-            <p className="body-lg">
-              Famous for Kadamba art, its shikhara is in the Kadamba-nagara style and it is regarded as one of the
-              oldest temples in Karnataka. The Madhukeshwara linga is honey-coloured — reputed to be the only one of its
-              kind. Two charming baby-elephant sculptures guard the entrance like twin tusks; a replica is said to be
-              kept in the New Parliament House, New Delhi.
-            </p>
-            <p className="body-lg">
-              Beside it stands the Madhumati Parvati temple, whose mantapa was built by Sadashivaraya of Sode. The
-              statues of Adi Madhava and Kartikeya date to the Kadamba period (4th century AD).
-            </p>
+            <SectionTitle eyebrow={a.templeEyebrow} title={a.templeTitle} />
+            <p className="body-lg">{a.temple1}</p>
+            <p className="body-lg">{a.temple2}</p>
             <p className="body muted">
-              <strong className="text-green">Also in the complex:</strong> Triloka Mantapa, Asthana Mantapa, Ashta
-              Dikpalakas, Dwibhuja Shanta Narasimha, Sri Rama, Adishesha, Veerabhadra, Basavalingeshwara, Chandeshwara
-              and more.
+              <strong className="text-green">{a.alsoLabel}</strong> {a.alsoList}
             </p>
           </div>
           <div className="split__media">
             <img className="photo photo--medium" src={images.temple} alt="Madhukeshwara temple complex in Banavasi" />
             <div className="mantapas">
-              <p className="eyebrow eyebrow--brown">THE SIX MANTAPAS</p>
-              <p className="mantapas__list">Bimba · Ardha · Ghanta · Sabha · Nritya · Nandi</p>
+              <p className="eyebrow eyebrow--brown">{a.mantapasTitle}</p>
+              <p className="mantapas__list">{a.mantapas}</p>
             </div>
           </div>
         </div>
@@ -217,12 +178,12 @@ export default function About() {
       {/* Gallery */}
       <section className="section bordered-top">
         <div className="container">
-          <SectionTitle eyebrow="GALLERY" title="Life at the gurukula" />
+          <SectionTitle eyebrow={a.galleryEyebrow} title={a.galleryTitle} />
           <div className="gallery">
             <img className="gallery__main" src={images.group} alt="Vidyarthis and Acharyas together" />
             <div className="gallery__side">
               <img src={images.temple} alt="Temple courtyard in Banavasi" />
-              <div className="placeholder">[Photo: Veda class]</div>
+              <div className="placeholder">{a.galleryPlaceholder}</div>
             </div>
           </div>
         </div>
