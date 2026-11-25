@@ -1,14 +1,13 @@
 import { Link } from 'react-router-dom';
 import SectionTitle from '../components/SectionTitle.jsx';
-import { site, images } from '../data/site.js';
+import { site, images, academicSubjects } from '../data/site.js';
 
 const curriculum = [
-  ['Veda Adhyayana', `${site.shakha} — samhita, pada and krama patha.`],
+  ['Veda Adhyayana', `${site.veda}, ${site.shakha} — learned by heart with correct svara.`],
   ['Sanskrit Bhasha', 'Reading, speaking and writing Sanskrit.'],
   ['Shastra', 'Vyakarana and other shastras for seniors.'],
   ['Prayoga', 'Sandhya, puja and Vedic karma in practice.'],
   ['Yoga & Health', 'Asana, pranayama, play and sattvic food.'],
-  ['Modern Subjects', 'Kannada, English, maths [via BOARD / NIOS].'],
 ];
 
 const yugas = [
@@ -97,7 +96,7 @@ export default function About() {
               teaching.]
             </p>
             <div className="mini-stats">
-              <div><p className="mini-stats__value">[Shakha]</p><p className="mini-stats__label">Veda shakha</p></div>
+              <div><p className="mini-stats__value">Taittiriya</p><p className="mini-stats__label">{site.veda} shakha</p></div>
               <div><p className="mini-stats__value">[XX] yrs</p><p className="mini-stats__label">Teaching</p></div>
               <div><p className="mini-stats__value">[Pathashala]</p><p className="mini-stats__label">Studied at</p></div>
             </div>
@@ -117,6 +116,35 @@ export default function About() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Academic education */}
+      <section id="academics" className="section section--white bordered-top">
+        <div className="container">
+          <div className="head-row head-row--dark">
+            <div>
+              <p className="eyebrow">ACADEMIC EDUCATION · <span className="kn">ಲೌಕಿಕ ವಿದ್ಯೆ</span></p>
+              <h2 className="h2">Balanced learning beyond the Vedas</h2>
+            </div>
+            <div>
+              <p className="body">
+                Along with Vedic education, students are taught essential academic subjects to ensure balanced
+                intellectual growth.
+              </p>
+              <p className="kn kn--muted">
+                ವೇದ ವಿದ್ಯೆಯ ಜೊತೆಗೆ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಸಮತೋಲನಯುತ ಬೆಳವಣಿಗೆಯಿಗಾಗಿ ಲೌಕಿಕ ವಿದ್ಯೆಗಳನ್ನು ಕಲಿಸಲಾಗುತ್ತದೆ.
+              </p>
+            </div>
+          </div>
+          <ul className="subjects">
+            {academicSubjects.map((s) => (
+              <li key={s.en} className="subjects__item">
+                <span className="subjects__en">{s.en}</span>
+                <span className="kn subjects__kn">{s.kn}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 

@@ -1,13 +1,16 @@
 import { Link } from 'react-router-dom';
 import SectionTitle from '../components/SectionTitle.jsx';
-import { site, images } from '../data/site.js';
+import { site, images, isSet } from '../data/site.js';
 
+// Items still marked [placeholder] in site.js are hidden until filled in.
 const stats = [
   { value: site.foundedYear, label: 'Year founded' },
   { value: site.students, label: 'Resident vidyarthis' },
-  { value: site.shakha, label: 'Veda shakha taught' },
+  { value: 'Taittiriya', label: `${site.veda} shakha`, show: site.shakha },
+  { value: `${site.ageRange} yrs`, label: 'Admission age (boys)' },
+  { value: site.admissionYear, label: 'Academic year' },
   { value: '1800+', label: "Years of Banavasi's history" },
-];
+].filter((s) => isSet(s.show ?? s.value));
 
 const foundations = [
   { title: 'Veda Adhyayana', text: 'Oral learning of the Vedas with correct svara, exactly as handed down for generations.' },
@@ -55,7 +58,7 @@ export default function Home() {
             learn with their Acharyas in the guru–shishya parampara.
           </p>
           <div className="btn-row">
-            <Link to="/contact" className="btn btn--saffron btn--lg">Admissions {site.foundedYear} open</Link>
+            <Link to="/contact" className="btn btn--saffron btn--lg">Admission {site.admissionYear} open</Link>
             <Link to="/about" className="btn btn--outline-light btn--lg">Our story</Link>
           </div>
         </div>
@@ -79,9 +82,13 @@ export default function Home() {
           <div className="split__text">
             <SectionTitle eyebrow="WELCOME" title="A living school of the Vedas in the land of the Kadambas" />
             <p className="body-lg">
-              Founded in {site.foundedYear} by {site.acharyaName}, our gurukula teaches the Vedas the way they have
-              always been taught — by listening, repeating and living with the Guru. Alongside Veda patha, students
-              learn Sanskrit, shastra, yoga and the values of a disciplined, simple life.
+              {isSet(site.foundedYear) && isSet(site.acharyaName)
+                ? `Founded in ${site.foundedYear} by ${site.acharyaName}, our gurukula teaches`
+                : 'Our gurukula teaches'} the Vedas the way they have
+              always been taught — by listening, repeating and living with the Guru. Vidyarthis learn the
+              {' '}{site.veda} ({site.shakha}).
+              Alongside Veda patha, students
+              study English, Kannada, Mathematics, Science, Social Science, Sanskrit, Yoga and Computer Education.
             </p>
             <Link to="/about" className="text-link">
               Meet our Acharyas <ArrowIcon />
@@ -159,11 +166,13 @@ export default function Home() {
         <div className="container cta__inner">
           <div>
             <h2 className="h2">Admissions open for {site.admissionYear}</h2>
-            <p className="body-lg">For students aged {site.ageRange}. Visit us, meet the Acharyas and see gurukula life for yourself.</p>
+            <p className="body-lg">For boys aged {site.ageRange}. Selection is through a personal interaction — call us on <a href={site.phoneHref}>{site.phone}</a> to plan a visit.</p>
+            <p className="kn cta__kn">ಬಾಲಕರಿಗೆ ಪ್ರವೇಶ · ಶೈಕ್ಷಣಿಕ ವರ್ಷ: {site.admissionYear}</p>
           </div>
           <div className="btn-row">
             <Link to="/contact#enquiry" className="btn btn--green btn--lg">Start your enquiry</Link>
             <Link to="/contact" className="btn btn--outline-green btn--lg">Plan a visit</Link>
+            <Link to="/contact#donate" className="btn btn--outline-green btn--lg">Support / Seva</Link>
           </div>
         </div>
       </section>
