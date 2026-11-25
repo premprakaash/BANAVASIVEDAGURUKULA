@@ -5,6 +5,14 @@ import { useLang, fill } from '../i18n/LanguageContext.jsx';
 
 const dayColors = ['#1F3B2D', '#3E6B54', '#6E9A82', '#E6B655', '#B35A00'];
 
+const iconProps = { width: 26, height: 26, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: 1.7, strokeLinecap: 'round', strokeLinejoin: 'round' };
+const facilityIcons = [
+  <svg key="home" {...iconProps}><path d="M3 11 12 4l9 7" /><path d="M5 10v10h14V10" /><path d="M10 20v-6h4v6" /></svg>,
+  <svg key="meal" {...iconProps}><path d="M3 12h18" /><path d="M5 12a7 7 0 0 0 14 0" /><path d="M12 5v3" /><path d="M9 6c0-1 1-2 1-3" /><path d="M15 6c0-1-1-2-1-3" /></svg>,
+  <svg key="book" {...iconProps}><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z" /><path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z" /></svg>,
+  <svg key="river" {...iconProps}><path d="M2 16c2 0 2-1.5 4-1.5S8 16 10 16s2-1.5 4-1.5 2 1.5 4 1.5 2-1.5 4-1.5" /><path d="M2 20c2 0 2-1.5 4-1.5S8 20 10 20s2-1.5 4-1.5 2 1.5 4 1.5 2-1.5 4-1.5" /><path d="M7 11V7l5-4 5 4v4" /></svg>,
+];
+
 function ArrowIcon() {
   return (
     <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -55,6 +63,27 @@ export default function Home() {
               <p className="stats__label">{s.label}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Recognition */}
+      <section className="recog" aria-label={h.recogEyebrow}>
+        <div className="container recog__inner">
+          <div className="recog__text">
+            <p className="eyebrow">{h.recogEyebrow}</p>
+            <p className="body">{h.recogText}</p>
+          </div>
+          <ul className="recog__bodies">
+            {h.recogBodies.map((r, i) => (
+              <li key={i} className="recog__body">
+                <svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5z" /><path d="m9 12 2 2 4-4" /></svg>
+                <span>
+                  <strong>{r.name}</strong>
+                  <span className="recog__place">{r.place}</span>
+                </span>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -117,6 +146,22 @@ export default function Home() {
           <div className="split__media">
             <img className="photo photo--tall" src={images.temple} alt="Stone shikhara and mantapas of the Madhukeshwara temple" />
           </div>
+        </div>
+      </section>
+
+      {/* Facilities */}
+      <section className="section section--white bordered-top">
+        <div className="container">
+          <SectionTitle eyebrow={h.facilitiesEyebrow} title={h.facilitiesTitle} />
+          <ul className="facilities">
+            {h.facilities.map((f, i) => (
+              <li key={i} className="facilities__item">
+                <span className="facilities__icon" aria-hidden="true">{facilityIcons[i]}</span>
+                <h3>{f.title}</h3>
+                <p>{f.text}</p>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
