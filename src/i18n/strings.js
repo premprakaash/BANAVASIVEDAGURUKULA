@@ -10,7 +10,9 @@ const en = {
     fullName: 'Shri Uma Madhukeshvara Veda Vidya Gurukula',
     footerName: 'Veda Gurukula Banavasi',
     location: 'Banavasi, Sirsi – 581318',
-    address: 'Banavasi, Sirsi Taluk, Uttara Kannada, Karnataka – 581318',
+    address: 'Near Madhukeshwara Temple, Banavasi, Sirsi Taluk, Uttara Kannada, Karnataka – 581318',
+    directions: 'Get directions',
+    mapTitle: 'Map showing the location of the gurukula in Banavasi',
     mottoMeaning: 'The Veda is the root of all dharma.',
     copyright: '© {year} {name}, Banavasi',
     whatsapp: 'WhatsApp',
@@ -201,6 +203,9 @@ const en = {
     emailLabel: 'EMAIL',
     hours: 'VISITING HOURS',
     follow: 'FOLLOW US',
+    mapEyebrow: 'LOCATION',
+    mapHeading: 'Find us in Banavasi',
+    mapText: 'The gurukula is near the Shri Madhukeshwara Temple in Banavasi, Sirsi Taluk.',
   },
 
   donate: {
@@ -230,7 +235,9 @@ const kn = {
     fullName: 'ಶ್ರೀ ಉಮಾ ಮಧುಕೇಶ್ವರ ವೇದ ವಿದ್ಯಾ ಗುರುಕುಲ',
     footerName: 'ವೇದ ಗುರುಕುಲ ಬನವಾಸಿ',
     location: 'ಬನವಾಸಿ, ಶಿರಸಿ – 581318',
-    address: 'ಬನವಾಸಿ, ಶಿರಸಿ ತಾಲೂಕು, ಉತ್ತರ ಕನ್ನಡ, ಕರ್ನಾಟಕ – 581318',
+    address: 'ಮಧುಕೇಶ್ವರ ದೇವಾಲಯದ ಹತ್ತಿರ, ಬನವಾಸಿ, ಶಿರಸಿ ತಾಲೂಕು, ಉತ್ತರ ಕನ್ನಡ, ಕರ್ನಾಟಕ – 581318',
+    directions: 'ದಾರಿ ತೋರಿಸಿ',
+    mapTitle: 'ಬನವಾಸಿಯಲ್ಲಿ ಗುರುಕುಲದ ಸ್ಥಳವನ್ನು ತೋರಿಸುವ ನಕ್ಷೆ',
     mottoMeaning: 'ವೇದವೇ ಎಲ್ಲಾ ಧರ್ಮಗಳ ಮೂಲ.',
     copyright: '© {year} {name}, ಬನವಾಸಿ',
     whatsapp: 'ವಾಟ್ಸ್ಆ್ಯಪ್',
@@ -411,6 +418,9 @@ const kn = {
     emailLabel: 'ಇಮೇಲ್',
     hours: 'ಭೇಟಿ ಸಮಯ',
     follow: 'ನಮ್ಮನ್ನು ಅನುಸರಿಸಿ',
+    mapEyebrow: 'ಸ್ಥಳ',
+    mapHeading: 'ಬನವಾಸಿಯಲ್ಲಿ ನಮ್ಮನ್ನು ತಲುಪಿ',
+    mapText: 'ಗುರುಕುಲವು ಶಿರಸಿ ತಾಲೂಕಿನ ಬನವಾಸಿಯಲ್ಲಿ, ಶ್ರೀ ಮಧುಕೇಶ್ವರ ದೇವಾಲಯದ ಹತ್ತಿರದಲ್ಲಿದೆ.',
   },
 
   donate: {

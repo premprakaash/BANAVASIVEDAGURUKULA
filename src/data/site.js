@@ -11,7 +11,10 @@ export const site = {
   whatsappNumber: '918106829861',
   email: '[email@vedagurukula.org]',
   address: 'Banavasi, Sirsi Taluk, Uttara Kannada, Karnataka – 581318',
-  street: '[Street / landmark]',
+  // Google Maps: the gurukula's place (plus code G2M8+WW5, near Madhukeshwara Temple)
+  mapEmbed:
+    'https://maps.google.com/maps?q=Uma+Madhukeshvara+Veda+Vidya+Gurukula,+G2M8%2BWW5,+near+Madhukeshwara+Temple,+Banavasi,+Karnataka+581318&z=16&output=embed',
+  mapLink: 'https://maps.app.goo.gl/LFSEqXAYoLThxtPZA',
   visitingHours: '[Days and time]',
   foundedYear: '[YEAR]',
   acharyaName: '[ACHARYA NAME]',

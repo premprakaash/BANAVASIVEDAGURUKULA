@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { site, isSet, whatsappLink } from '../data/site.js';
 import { useLang, fill } from '../i18n/LanguageContext.jsx';
-import { PhoneIcon, WhatsAppIcon, YouTubeIcon, InstagramIcon } from './Icons.jsx';
+import { PhoneIcon, WhatsAppIcon, YouTubeIcon, InstagramIcon, MapPinIcon } from './Icons.jsx';
 
 export default function Footer() {
   const { t } = useLang();
@@ -35,6 +35,9 @@ export default function Footer() {
           <div className="footer__col footer__col--wide">
             <p className="footer__label">{t.footer.visit}</p>
             <p>{t.common.address}</p>
+            <a href={site.mapLink} target="_blank" rel="noreferrer" className="footer__icon-link">
+              <MapPinIcon /> {t.common.directions}
+            </a>
             <a href={site.phoneHref} className="footer__icon-link">
               <PhoneIcon /> {site.phone}
             </a>

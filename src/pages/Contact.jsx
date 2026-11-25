@@ -4,7 +4,7 @@ import SectionTitle from '../components/SectionTitle.jsx';
 import Donate from '../components/Donate.jsx';
 import { site, images, isSet, whatsappLink } from '../data/site.js';
 import { useLang, fill } from '../i18n/LanguageContext.jsx';
-import { PhoneIcon, WhatsAppIcon, YouTubeIcon, InstagramIcon } from '../components/Icons.jsx';
+import { PhoneIcon, WhatsAppIcon, YouTubeIcon, InstagramIcon, MapPinIcon } from '../components/Icons.jsx';
 
 const emptyForm = { parent: '', student: '', age: '', phone: '', email: '', message: '' };
 
@@ -111,9 +111,13 @@ export default function Contact() {
             <div className="visit-card__item">
               <p className="visit-card__label">{c.address}</p>
               <p>
-                {t.common.fullName}, {isSet(site.street) && `${site.street}, `}
-                {t.common.address}
+                {t.common.fullName}, {t.common.address}
               </p>
+              <div className="visit-card__actions">
+                <a href={site.mapLink} target="_blank" rel="noreferrer" className="pill-link">
+                  <MapPinIcon /> {t.common.directions}
+                </a>
+              </div>
             </div>
             <div className="visit-card__item">
               <p className="visit-card__label">{c.phoneLabel}</p>
@@ -143,6 +147,30 @@ export default function Contact() {
                 <a href={site.instagram} target="_blank" rel="noreferrer" className="pill-link"><InstagramIcon /> Instagram</a>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Location map */}
+      <section id="location" className="section section--white bordered-top">
+        <div className="container">
+          <div className="map-head">
+            <SectionTitle eyebrow={c.mapEyebrow} title={c.mapHeading} />
+            <div className="map-head__side">
+              <p className="body">{c.mapText}</p>
+              <a href={site.mapLink} target="_blank" rel="noreferrer" className="btn btn--green btn--icon map-head__btn">
+                <MapPinIcon width={20} height={20} /> {t.common.directions}
+              </a>
+            </div>
+          </div>
+          <div className="map-frame">
+            <iframe
+              title={t.common.mapTitle}
+              src={site.mapEmbed}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
           </div>
         </div>
       </section>
