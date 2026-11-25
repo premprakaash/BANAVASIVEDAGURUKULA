@@ -372,3 +372,6 @@ html[lang="kn"] .curriculum__name { width: 220px; }
   .lang-toggle__btn { min-width: 40px; min-height: 38px; padding: 4px 9px; font-size: 13px; }
   .menu-toggle { width: 44px; height: 44px; }
 }
+
+.photo--welcome { height: 440px; }
+@media (max-width: 720px) { .photo--welcome { height: 280px; } }

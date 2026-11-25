@@ -69,9 +69,8 @@ export default function Home() {
               {h.welcomeLink} <ArrowIcon />
             </Link>
           </div>
-          <div className="split__media welcome-media">
-            <img className="welcome-media__main" src={images.temple} alt="Madhukeshwara temple complex in Banavasi" />
-            <img className="welcome-media__side" src={images.logo} alt="Veda Gurukula Banavasi emblem" />
+          <div className="split__media">
+            <img className="photo photo--welcome" src={images.temple} alt="Madhukeshwara temple complex in Banavasi" />
           </div>
         </div>
       </section>
