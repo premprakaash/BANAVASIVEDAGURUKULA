@@ -33,9 +33,10 @@ export default function About() {
           </div>
           <div className="story__body">
             <p className="body-xl">
-              {fill(a.story1, { fullName: t.common.fullName, year: site.foundedYear, acharya: site.acharyaName })}
+              {fill(a.story1, { fullName: t.common.fullName, year: site.foundedYear, acharya: a.acharyaName })}
             </p>
-            <p className="body-xl">{fill(a.story2, { students: site.students })}</p>
+            <p className="body-xl">{a.story2}</p>
+            <p className="body-xl">{a.story3}</p>
           </div>
         </div>
       </section>
@@ -69,11 +70,13 @@ export default function About() {
       </section>
 
       {/* Acharya */}
-      <section className="section section--white bordered-top">
+      <section id="acharya" className="section section--white bordered-top">
         <div className="container split split--center">
-          <div className="placeholder placeholder--portrait">{a.acharyaPhoto}</div>
+          <figure className="acharya-photo">
+            <img src={images.acharya} alt={a.acharyaPhotoAlt} width="800" height="980" />
+          </figure>
           <div className="split__text">
-            <SectionTitle eyebrow={a.acharyaEyebrow} title={site.acharyaName} />
+            <SectionTitle eyebrow={a.acharyaEyebrow} title={a.acharyaName} />
             <p className="role">{a.acharyaRole}</p>
             <p className="body-lg">{a.acharyaBio}</p>
             <div className="mini-stats">
@@ -84,6 +87,22 @@ export default function About() {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+        <div className="container">
+          <div className="quals">
+            <p className="eyebrow">{a.qualificationsTitle}</p>
+            <ol className="quals__list">
+              {a.qualifications.map((q, i) => (
+                <li key={i} className="quals__item">
+                  <span className="quals__num">{String(i + 1).padStart(2, '0')}</span>
+                  <div>
+                    <p className="quals__title">{q.title}</p>
+                    <p className="quals__place">{q.place}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
           </div>
         </div>
       </section>
