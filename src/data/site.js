@@ -17,7 +17,7 @@ export const site = {
   acharyaName: '[ACHARYA NAME]',
   shakha: '[SHAKHA]',
   students: '[XX]',
-  admissionYear: '2026–27',
+  admissionYear: '2026 – 2027',
   ageRange: '9–12',
   youtube: 'https://www.youtube.com/@umamadhusoodan',
   instagram: 'https://www.instagram.com/banavasigurukula',
@@ -47,7 +47,7 @@ export const admissions = [
   { label: 'Age', value: '9 – 12 years (as per Gurukula norms)', kn: 'ಗುರುಕುಲ ನಿಯಮಾನುಸಾರ ವಯೋಮಿತಿ' },
   { label: 'Selection', value: 'Interaction / interview', kn: 'ಸಂದರ್ಶನ / ಸಂವಾದದ ಮೂಲಕ ಆಯ್ಕೆ' },
   { label: 'Documents', value: 'Submitted at admission', kn: 'ಅಗತ್ಯ ದಾಖಲೆಗಳ ಸಲ್ಲಿಕೆ' },
-  { label: 'Academic year', value: '2026–27', kn: 'ಶೈಕ್ಷಣಿಕ ವರ್ಷ: 2026–27' },
+  { label: 'Academic year', value: '2026 – 2027', kn: 'ಶೈಕ್ಷಣಿಕ ವರ್ಷ: 2026 – 2027' },
 ];
 
 // BASE_URL keeps image paths working whether the site is served from "/" or a sub-path.

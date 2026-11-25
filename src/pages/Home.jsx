@@ -58,7 +58,7 @@ export default function Home() {
             learn with their Acharyas in the guru–shishya parampara.
           </p>
           <div className="btn-row">
-            <Link to="/contact" className="btn btn--saffron btn--lg">Admissions {site.admissionYear} open</Link>
+            <Link to="/contact" className="btn btn--saffron btn--lg">Admission {site.admissionYear} open</Link>
             <Link to="/about" className="btn btn--outline-light btn--lg">Our story</Link>
           </div>
         </div>
