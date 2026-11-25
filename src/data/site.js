@@ -9,7 +9,7 @@ export const site = {
   phone: '+91 81068 29861',
   phoneHref: 'tel:+918106829861',
   whatsappNumber: '918106829861',
-  email: '[email@vedagurukula.org]',
+  email: 'bhatmadhusoodan9@gmail.com',
   address: 'Banavasi, Sirsi Taluk, Uttara Kannada, Karnataka – 581318',
   // Google Maps: the gurukula's place (plus code G2M8+WW5, near Madhukeshwara Temple)
   mapEmbed:
@@ -32,6 +32,12 @@ export const isSet = (value) => Boolean(value) && !String(value).trim().startsWi
 
 export const whatsappLink = (text = '') =>
   `https://wa.me/${site.whatsappNumber}${text ? `?text=${encodeURIComponent(text)}` : ''}`;
+
+// Trust bank account for donations (bank transfer)
+export const bank = {
+  accountNumber: '131922010000566',
+  ifsc: 'UBIN0913197',
+};
 
 // Payment / seva details (from the gurukula's Union Bank BharatQR)
 export const payment = {

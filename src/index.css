@@ -403,3 +403,65 @@ html[lang="kn"] .curriculum__name { width: 220px; }
   .quals { padding: 24px 20px 8px; }
   .quals__list { grid-template-columns: 1fr; }
 }
+
+/* ===== Recognition strip (Home) ===== */
+.recog { padding: 72px 0 0; background: var(--paper); }
+.recog__inner { display: flex; flex-wrap: wrap; align-items: center; gap: 24px 48px; padding-top: 0; }
+.recog__text { flex: 1 1 420px; min-width: 0; }
+.recog__text .body { margin-top: 10px; }
+.recog__bodies { flex: 1 1 420px; margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; }
+.recog__body { display: flex; align-items: center; gap: 14px; padding: 16px 20px; border-radius: 14px; background: var(--white); border: 1px solid var(--line); border-left: 4px solid var(--gold); color: var(--green); }
+.recog__body svg { flex: none; color: var(--saffron); }
+.recog__body strong { display: block; font-size: 17px; line-height: 1.4; }
+.recog__place { display: block; font-size: 14px; color: var(--muted); }
+.recog + .section { padding-top: 80px; }
+
+/* ===== Facilities (Home) ===== */
+.facilities { margin: 40px 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+.facilities__item { padding: 28px 26px; border-radius: 16px; background: var(--paper); border: 1px solid var(--line); }
+.facilities__icon { width: 52px; height: 52px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; background: var(--green-soft); color: var(--green); }
+.facilities__item h3 { margin: 18px 0 8px; font-family: var(--serif); font-weight: 600; font-size: 20px; color: var(--green); }
+.facilities__item p { font-size: 16px; line-height: 1.6; color: var(--body); }
+
+/* ===== Course of study & syllabus (About) ===== */
+.head-row--dark .section-title { flex: 1 1 420px; }
+.head-row--dark > .body { flex: 1 1 460px; }
+.courses { margin-top: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+.courses__item { padding: 26px 24px; border-radius: 16px; background: var(--white); border: 1px solid var(--line); border-top: 4px solid var(--green); }
+.courses__item:nth-child(2) { border-top-color: var(--gold); }
+.courses__item:nth-child(3) { border-top-color: var(--saffron); }
+.courses__years { font-family: var(--serif); font-weight: 700; font-size: 28px; color: var(--green); }
+.courses__item h3 { margin: 6px 0; font-size: 18px; font-weight: 600; color: var(--green); }
+.courses__item p:last-child { font-size: 16px; line-height: 1.6; color: var(--body); }
+.syllabus { margin-top: 44px; }
+.syllabus__scroll { margin-top: 14px; overflow-x: auto; border-radius: 14px; border: 1px solid var(--line); background: var(--white); }
+.syllabus__table { width: 100%; min-width: 560px; border-collapse: collapse; font-size: 16px; }
+.syllabus__table th, .syllabus__table td { padding: 14px 18px; text-align: left; border-bottom: 1px solid #EEE9DD; vertical-align: top; line-height: 1.55; }
+.syllabus__table thead th { background: var(--green); color: var(--white); font-weight: 600; font-size: 15px; letter-spacing: 0.04em; }
+.syllabus__table tbody th { white-space: nowrap; color: var(--green); font-weight: 700; }
+.syllabus__table tbody tr:last-child th, .syllabus__table tbody tr:last-child td { border-bottom: 0; }
+.syllabus__table tbody tr:nth-child(even) { background: #FCFAF5; }
+.stage { display: inline-block; padding: 3px 10px; border-radius: 999px; background: var(--green-soft); color: var(--green); font-size: 13px; font-weight: 600; white-space: nowrap; }
+.stage--higher { background: var(--sand); color: #6B3A00; }
+
+/* ===== Trustees (About) ===== */
+.trustees { margin-top: 28px; padding: 32px 36px; border-radius: 18px; background: var(--green); color: #E4ECE6; }
+.trustees .eyebrow { color: var(--gold); }
+.trustees__title { margin: 8px 0 0; font-family: var(--serif); font-weight: 600; font-size: 24px; color: var(--white); }
+.trustees__list { margin: 20px 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+.trustees__item { display: flex; flex-direction: column; gap: 2px; padding: 14px 16px; border-radius: 12px; background: rgba(255, 255, 255, 0.06); border: 1px solid var(--green-line); }
+.trustees__name { font-weight: 600; font-size: 17px; color: var(--white); }
+.trustees__role { font-size: 14px; color: var(--gold-light); }
+
+/* ===== Donate additions ===== */
+.pay-subtitle { margin-top: 34px; }
+.ways { margin: 12px 0 0; padding: 0; list-style: none; border-top: 1px solid #E4CFAE; }
+.ways__item { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 14px 0; border-bottom: 1px solid #E4CFAE; font-size: 17px; color: var(--ink); }
+.ways__item strong { flex: none; font-family: var(--serif); font-size: 20px; color: var(--green); }
+.pay-subtitle + .pay-details { margin-top: 12px; }
+.qr-card--sticky { position: sticky; top: 110px; align-self: flex-start; }
+@media (max-width: 720px) {
+  .recog { padding-top: 48px; }
+  .trustees { padding: 24px 20px; }
+  .qr-card--sticky { position: static; }
+}

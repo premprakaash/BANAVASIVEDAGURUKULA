@@ -35,7 +35,7 @@ export default function About() {
             <p className="body-xl">
               {fill(a.story1, { fullName: t.common.fullName, year: site.foundedYear, acharya: a.acharyaName })}
             </p>
-            <p className="body-xl">{a.story2}</p>
+            <p className="body-xl">{fill(a.story2, { acharya: a.acharyaName })}</p>
             <p className="body-xl">{a.story3}</p>
           </div>
         </div>
@@ -59,9 +59,9 @@ export default function About() {
             <p className="body">{a.visionText}</p>
           </div>
           <div className="card">
-            <p className="eyebrow">{a.missionEyebrow}</p>
+            <p className="eyebrow">{a.objectivesEyebrow}</p>
             <ol className="mission-list">
-              {a.mission.map((m, i) => (
+              {a.objectives.map((m, i) => (
                 <li key={i}>{m}</li>
               ))}
             </ol>
@@ -104,20 +104,59 @@ export default function About() {
               ))}
             </ol>
           </div>
+          <div className="trustees">
+            <p className="eyebrow">{a.trusteesEyebrow}</p>
+            <h3 className="trustees__title">{a.trusteesTitle}</h3>
+            <ul className="trustees__list">
+              {a.trustees.map((tr, i) => (
+                <li key={i} className="trustees__item">
+                  <span className="trustees__name">{tr.name}</span>
+                  <span className="trustees__role">{tr.role}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
 
       {/* Vedic curriculum */}
       <section className="section">
         <div className="container">
-          <SectionTitle eyebrow={a.curriculumEyebrow} title={a.curriculumTitle} />
-          <div className="curriculum">
-            {a.curriculum.map(([name, text]) => (
-              <div className="curriculum__row" key={name}>
-                <span className="curriculum__name">{name}</span>
-                <span className="curriculum__text">{text}</span>
+          <div className="head-row head-row--dark">
+            <SectionTitle eyebrow={a.curriculumEyebrow} title={a.curriculumTitle} />
+            <p className="body">{a.curriculumText}</p>
+          </div>
+          <div className="courses">
+            {a.courses.map((c, i) => (
+              <div className="courses__item" key={i}>
+                <p className="courses__years">{c.years}</p>
+                <h3>{c.title}</h3>
+                <p>{c.text}</p>
               </div>
             ))}
+          </div>
+          <div className="syllabus">
+            <p className="eyebrow">{a.syllabusTitle}</p>
+            <div className="syllabus__scroll">
+              <table className="syllabus__table">
+                <thead>
+                  <tr>
+                    {a.syllabusCols.map((c) => (
+                      <th key={c} scope="col">{c}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {a.syllabus.map((r, i) => (
+                    <tr key={i}>
+                      <th scope="row">{r.year}</th>
+                      <td>{r.text}</td>
+                      <td><span className={i >= 6 ? 'stage stage--higher' : 'stage'}>{r.stage}</span></td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </section>
@@ -180,6 +219,7 @@ export default function About() {
             <SectionTitle eyebrow={a.templeEyebrow} title={a.templeTitle} />
             <p className="body-lg">{a.temple1}</p>
             <p className="body-lg">{a.temple2}</p>
+            <p className="body-lg">{a.temple3}</p>
             <p className="body muted">
               <strong className="text-green">{a.alsoLabel}</strong> {a.alsoList}
             </p>
