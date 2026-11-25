@@ -29,6 +29,7 @@ export default function Footer() {
             <p className="footer__label">{t.footer.pages}</p>
             <Link to="/">{t.nav.home}</Link>
             <Link to="/about">{t.nav.about}</Link>
+            <Link to="/gallery">{t.nav.gallery}</Link>
             <Link to="/contact">{t.nav.contact}</Link>
             <Link to="/contact#donate">{t.nav.seva}</Link>
           </div>

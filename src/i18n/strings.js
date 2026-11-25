@@ -22,6 +22,7 @@ const en = {
   nav: {
     home: 'Home',
     about: 'About',
+    gallery: 'Gallery',
     contact: 'Admissions & Contact',
     apply: 'Apply / Enquire',
     seva: 'Support / Seva',
@@ -197,7 +198,6 @@ const en = {
     mantapas: 'Bimba · Ardha · Ghanta · Sabha · Nritya · Nandi',
     galleryEyebrow: 'GALLERY',
     galleryTitle: 'Life at the gurukula',
-    galleryPlaceholder: '[Photo: Veda class]',
   },
 
   subjects: [
@@ -251,6 +251,22 @@ const en = {
     mapEyebrow: 'LOCATION',
     mapHeading: 'Find us in Banavasi',
     mapText: 'The gurukula is near the Shri Madhukeshwara Temple in Banavasi, Sirsi Taluk.',
+  },
+
+  gallery: {
+    breadcrumb: 'Gallery',
+    title: 'Gallery',
+    lead: 'Moments from life at the gurukula — classes, the temple, the campus and celebrations.',
+    filters: { all: 'All', campus: 'Campus', classes: 'Classes', temple: 'Temple', events: 'Events' },
+    photo: 'Photo',
+    video: 'Video',
+    play: 'Play video',
+    close: 'Close',
+    prev: 'Previous',
+    next: 'Next',
+    count: '{n} items',
+    empty: 'Photos and videos are coming soon.',
+    viewAll: 'View full gallery',
   },
 
   donate: {
@@ -307,6 +323,7 @@ const kn = {
   nav: {
     home: 'ಮುಖಪುಟ',
     about: 'ನಮ್ಮ ಬಗ್ಗೆ',
+    gallery: 'ಚಿತ್ರಸಂಪುಟ',
     contact: 'ಪ್ರವೇಶ ಮತ್ತು ಸಂಪರ್ಕ',
     apply: 'ಅರ್ಜಿ / ವಿಚಾರಣೆ',
     seva: 'ಸೇವೆ / ದೇಣಿಗೆ',
@@ -482,7 +499,6 @@ const kn = {
     mantapas: 'ಬಿಂಬ · ಅರ್ಧ · ಘಂಟಾ · ಸಭಾ · ನೃತ್ಯ · ನಂದಿ',
     galleryEyebrow: 'ಚಿತ್ರಸಂಪುಟ',
     galleryTitle: 'ಗುರುಕುಲದ ಜೀವನ',
-    galleryPlaceholder: '[ಚಿತ್ರ: ವೇದ ತರಗತಿ]',
   },
 
   subjects: ['ಇಂಗ್ಲಿಷ್', 'ಕನ್ನಡ', 'ಗಣಿತ', 'ವಿಜ್ಞಾನ', 'ಸಮಾಜ ಶಾಸ್ತ್ರ', 'ಸಂಸ್ಕೃತ', 'ಯೋಗ', 'ಕಂಪ್ಯೂಟರ್ ಶಿಕ್ಷಣ'],
@@ -527,6 +543,22 @@ const kn = {
     mapEyebrow: 'ಸ್ಥಳ',
     mapHeading: 'ಬನವಾಸಿಯಲ್ಲಿ ನಮ್ಮನ್ನು ತಲುಪಿ',
     mapText: 'ಗುರುಕುಲವು ಶಿರಸಿ ತಾಲೂಕಿನ ಬನವಾಸಿಯಲ್ಲಿ, ಶ್ರೀ ಮಧುಕೇಶ್ವರ ದೇವಾಲಯದ ಹತ್ತಿರದಲ್ಲಿದೆ.',
+  },
+
+  gallery: {
+    breadcrumb: 'ಚಿತ್ರಸಂಪುಟ',
+    title: 'ಚಿತ್ರಸಂಪುಟ',
+    lead: 'ಗುರುಕುಲ ಜೀವನದ ಕ್ಷಣಗಳು — ತರಗತಿಗಳು, ದೇವಾಲಯ, ಆವರಣ ಮತ್ತು ಆಚರಣೆಗಳು.',
+    filters: { all: 'ಎಲ್ಲಾ', campus: 'ಆವರಣ', classes: 'ತರಗತಿಗಳು', temple: 'ದೇವಾಲಯ', events: 'ಕಾರ್ಯಕ್ರಮಗಳು' },
+    photo: 'ಚಿತ್ರ',
+    video: 'ವೀಡಿಯೊ',
+    play: 'ವೀಡಿಯೊ ಪ್ಲೇ ಮಾಡಿ',
+    close: 'ಮುಚ್ಚಿ',
+    prev: 'ಹಿಂದಿನದು',
+    next: 'ಮುಂದಿನದು',
+    count: '{n} ಚಿತ್ರ / ವೀಡಿಯೊ',
+    empty: 'ಚಿತ್ರಗಳು ಮತ್ತು ವೀಡಿಯೊಗಳು ಶೀಘ್ರದಲ್ಲೇ.',
+    viewAll: 'ಸಂಪೂರ್ಣ ಚಿತ್ರಸಂಪುಟ ನೋಡಿ',
   },
 
   donate: {

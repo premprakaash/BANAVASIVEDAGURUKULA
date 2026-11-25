@@ -37,6 +37,10 @@ npm run preview    # preview the production build
 One-time server and secrets setup: see **[DEPLOYMENT.md](DEPLOYMENT.md)**.
 You can also re-run a deploy by hand from the **Actions** tab (“Run workflow”).
 
+## Gallery (Cloudflare R2)
+
+Photos and videos for the **Gallery** page live in `media/gallery/` and are uploaded to Cloudflare R2 by the *Upload media to R2* workflow. Setup and how to add new items: **[MEDIA.md](MEDIA.md)**.
+
 ## Enquiry form
 
 The form currently shows a thank-you message only. Connect it to a backend, Formspree, EmailJS or Google Forms in `handleSubmit` inside `src/pages/Contact.jsx`.

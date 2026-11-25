@@ -465,3 +465,51 @@ html[lang="kn"] .curriculum__name { width: 220px; }
   .trustees { padding: 24px 20px; }
   .qr-card--sticky { position: static; }
 }
+
+/* ===== Gallery page ===== */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+.gallery__more { margin-top: 28px; }
+.gallery__empty { text-align: center; padding: 40px 0; }
+.gallery-filters { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.chip-btn { min-height: 44px; padding: 8px 20px; border-radius: 999px; border: 1px solid #CFDDD3; background: var(--white); color: var(--green); font: 600 15px var(--sans); cursor: pointer; transition: background 0.2s, color 0.2s; }
+.chip-btn:hover { background: var(--green-soft); }
+.chip-btn.is-active { background: var(--green); border-color: var(--green); color: var(--white); }
+.chip-btn:focus-visible { outline: 2px solid var(--saffron); outline-offset: 2px; }
+.gallery-filters__count { margin-left: auto; font-size: 15px; color: var(--muted); }
+.gallery-grid { margin: 32px 0 0; padding: 0; list-style: none; columns: 3 300px; column-gap: 20px; }
+.gallery-grid__item { break-inside: avoid; margin-bottom: 20px; }
+.gallery-tile { display: block; width: 100%; padding: 0; border: 0; background: var(--white); border-radius: 16px; overflow: hidden; text-align: left; cursor: pointer; box-shadow: 0 8px 24px rgba(20, 40, 30, 0.08); transition: transform 0.2s, box-shadow 0.2s; font: inherit; color: inherit; }
+.gallery-tile:hover { transform: translateY(-3px); box-shadow: 0 16px 36px rgba(20, 40, 30, 0.14); }
+.gallery-tile:focus-visible { outline: 3px solid var(--saffron); outline-offset: 3px; }
+.gallery-tile__media { position: relative; display: block; background: var(--green-soft); }
+.gallery-tile__media img { display: block; width: 100%; height: auto; }
+.gallery-tile__play { position: absolute; left: 50%; top: 50%; width: 64px; height: 64px; margin: -32px 0 0 -32px; border-radius: 50%; background: rgba(20, 40, 30, 0.72); color: var(--white); display: flex; align-items: center; justify-content: center; padding-left: 4px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); }
+.gallery-tile:hover .gallery-tile__play { background: var(--saffron); }
+.gallery-tile__badge { position: absolute; left: 12px; top: 12px; padding: 4px 10px; border-radius: 999px; background: rgba(20, 40, 30, 0.75); color: var(--white); font-size: 13px; font-weight: 600; }
+.gallery-tile__caption { display: block; padding: 14px 16px 16px; font-weight: 600; font-size: 16px; line-height: 1.45; color: var(--green); }
+.gallery-tile__cat { display: block; margin-top: 2px; font-weight: 500; font-size: 13px; color: var(--saffron-text); }
+
+/* Lightbox */
+.lightbox { position: fixed; inset: 0; z-index: 100; background: rgba(8, 16, 12, 0.92); display: flex; align-items: center; justify-content: center; padding: 16px; }
+.lightbox__inner { position: relative; width: 100%; max-width: 1100px; max-height: 100%; display: flex; flex-direction: column; gap: 12px; }
+.lightbox__media { display: flex; justify-content: center; align-items: center; min-height: 0; }
+.lightbox__media img, .lightbox__media video { max-width: 100%; max-height: calc(100vh - 140px); border-radius: 10px; background: #000; }
+.lightbox__bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; color: var(--white); }
+.lightbox__caption { flex: 1; text-align: center; font-size: 16px; font-weight: 600; }
+.lightbox__caption span { display: block; margin-top: 2px; font-size: 13px; font-weight: 400; color: var(--on-dark-muted); }
+.lightbox__btn { flex: none; width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.3); background: rgba(255, 255, 255, 0.08); color: var(--white); display: inline-flex; align-items: center; justify-content: center; cursor: pointer; }
+.lightbox__btn:hover { background: rgba(255, 255, 255, 0.2); }
+.lightbox__btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.lightbox__close { position: absolute; top: -4px; right: 0; z-index: 2; }
+@media (max-width: 720px) {
+  .gallery-filters__count { margin-left: 0; width: 100%; }
+  .gallery-grid { columns: 2 150px; column-gap: 12px; }
+  .gallery-grid__item { margin-bottom: 12px; }
+  .gallery-tile__play { width: 48px; height: 48px; margin: -24px 0 0 -24px; }
+  .gallery-tile__caption { padding: 10px 12px 12px; font-size: 14px; }
+  .lightbox__close { top: 8px; right: 8px; }
+}
+
+@media (max-width: 720px) {
+  .topbar__links a[href^="mailto:"] { display: none; }
+}
