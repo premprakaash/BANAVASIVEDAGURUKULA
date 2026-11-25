@@ -1,0 +1,65 @@
+/* Self-hosted Kannada fonts with size-adjust, so Kannada letters match the size of the English text.
+   unicode-range limits them to Kannada characters; English keeps Mukta / Playfair Display. */
+@font-face {
+  font-family: 'Kannada Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('@fontsource/noto-sans-kannada/files/noto-sans-kannada-kannada-400-normal.woff2') format('woff2');
+  unicode-range: U+0C80-0CFF, U+200C-200D, U+25CC;
+  size-adjust: 116%;
+}
+@font-face {
+  font-family: 'Kannada Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('@fontsource/noto-sans-kannada/files/noto-sans-kannada-kannada-500-normal.woff2') format('woff2');
+  unicode-range: U+0C80-0CFF, U+200C-200D, U+25CC;
+  size-adjust: 116%;
+}
+@font-face {
+  font-family: 'Kannada Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('@fontsource/noto-sans-kannada/files/noto-sans-kannada-kannada-600-normal.woff2') format('woff2');
+  unicode-range: U+0C80-0CFF, U+200C-200D, U+25CC;
+  size-adjust: 116%;
+}
+@font-face {
+  font-family: 'Kannada Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('@fontsource/noto-sans-kannada/files/noto-sans-kannada-kannada-700-normal.woff2') format('woff2');
+  unicode-range: U+0C80-0CFF, U+200C-200D, U+25CC;
+  size-adjust: 116%;
+}
+@font-face {
+  font-family: 'Kannada Serif';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('@fontsource/noto-serif-kannada/files/noto-serif-kannada-kannada-500-normal.woff2') format('woff2');
+  unicode-range: U+0C80-0CFF, U+200C-200D, U+25CC;
+  size-adjust: 104%;
+}
+@font-face {
+  font-family: 'Kannada Serif';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('@fontsource/noto-serif-kannada/files/noto-serif-kannada-kannada-600-normal.woff2') format('woff2');
+  unicode-range: U+0C80-0CFF, U+200C-200D, U+25CC;
+  size-adjust: 104%;
+}
+@font-face {
+  font-family: 'Kannada Serif';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('@fontsource/noto-serif-kannada/files/noto-serif-kannada-kannada-700-normal.woff2') format('woff2');
+  unicode-range: U+0C80-0CFF, U+200C-200D, U+25CC;
+  size-adjust: 104%;
+}

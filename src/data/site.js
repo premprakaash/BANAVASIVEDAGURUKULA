@@ -40,27 +40,6 @@ export const payment = {
   upiLink: 'upi://pay?pa=37525901@ubin&pn=MADHUKESHVARA%20VEDA%20VIDY&cu=INR',
 };
 
-// Academic education (ಲೌಕಿಕ ವಿದ್ಯೆ) taught alongside Vedic education
-export const academicSubjects = [
-  { en: 'English', kn: 'ಇಂಗ್ಲಿಷ್' },
-  { en: 'Kannada', kn: 'ಕನ್ನಡ' },
-  { en: 'Mathematics', kn: 'ಗಣಿತ' },
-  { en: 'Science', kn: 'ವಿಜ್ಞಾನ' },
-  { en: 'Social Science', kn: 'ಸಮಾಜ ಶಾಸ್ತ್ರ' },
-  { en: 'Sanskrit', kn: 'ಸಂಸ್ಕೃತ' },
-  { en: 'Yoga', kn: 'ಯೋಗ' },
-  { en: 'Computer Education', kn: 'ಕಂಪ್ಯೂಟರ್ ಶಿಕ್ಷಣ' },
-];
-
-// Admissions (ಪ್ರವೇಶ ಮಾಹಿತಿ)
-export const admissions = [
-  { label: 'Admission for', value: 'Boys', kn: 'ಬಾಲಕರಿಗೆ ಪ್ರವೇಶ' },
-  { label: 'Age', value: '9 – 14 years (as per Gurukula norms)', kn: 'ಗುರುಕುಲ ನಿಯಮಾನುಸಾರ ವಯೋಮಿತಿ: 9 – 14 ವರ್ಷ' },
-  { label: 'Selection', value: 'Interaction / interview', kn: 'ಸಂದರ್ಶನ / ಸಂವಾದದ ಮೂಲಕ ಆಯ್ಕೆ' },
-  { label: 'Documents', value: 'Submitted at admission', kn: 'ಅಗತ್ಯ ದಾಖಲೆಗಳ ಸಲ್ಲಿಕೆ' },
-  { label: 'Academic year', value: '2026 – 2027', kn: 'ಶೈಕ್ಷಣಿಕ ವರ್ಷ: 2026 – 2027' },
-];
-
 // BASE_URL keeps image paths working whether the site is served from "/" or a sub-path.
 const base = import.meta.env.BASE_URL;
 
