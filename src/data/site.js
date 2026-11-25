@@ -46,5 +46,6 @@ const base = import.meta.env.BASE_URL;
 export const images = {
   logo: `${base}images/logo.jpg`,
   temple: `${base}images/temple.jpg`,
+  deity: `${base}images/madhukeshwara-deity.jpg`,
   group: `${base}images/gurukula-group.jpg`,
 };

@@ -70,7 +70,13 @@ export default function Home() {
             </Link>
           </div>
           <div className="split__media">
-            <img className="photo photo--welcome" src={images.temple} alt="Madhukeshwara temple complex in Banavasi" />
+            <img
+              className="photo-deity"
+              src={images.deity}
+              alt="Shri Uma Madhukeshwara Devaru (decorated), Banavasi"
+              width="439"
+              height="653"
+            />
           </div>
         </div>
       </section>
