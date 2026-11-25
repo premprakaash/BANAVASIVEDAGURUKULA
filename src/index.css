@@ -259,3 +259,47 @@ p { margin: 0; }
   .curriculum__name { width: auto; }
   .header { position: static; }
 }
+
+/* ===== Client details: social, Kannada, academics, admissions ===== */
+.kn { font-family: 'Noto Sans Kannada', var(--sans); }
+.kn--light { color: var(--gold-light); }
+.kn--muted { margin-top: 10px; font-size: 16px; line-height: 1.7; color: var(--muted); }
+.contact-hero__kn { margin-top: 12px; font-size: 18px; }
+.cta__kn { margin-top: 8px; font-size: 16px; color: #6B3A00; }
+.cta .body-lg a { font-weight: 600; }
+
+.topbar__links { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 14px; }
+.topbar__links a { display: inline-flex; align-items: center; gap: 6px; color: var(--on-dark); text-decoration: none; }
+.topbar__links a:hover { color: var(--gold); }
+
+.social { margin-top: 18px; display: flex; gap: 10px; }
+.social a { width: 44px; height: 44px; border-radius: 50%; border: 1px solid #2C4A3A; display: inline-flex; align-items: center; justify-content: center; color: var(--on-dark); }
+.social a:hover { background: var(--gold); border-color: var(--gold); color: var(--green-dark); }
+.footer__icon-link { display: inline-flex; align-items: center; gap: 8px; }
+
+.head-row--dark { align-items: flex-start; }
+.head-row--dark > div:first-child { flex: 1 1 420px; }
+.head-row--dark > div:last-child { flex: 1 1 440px; }
+.head-row--dark .h2 { margin-top: 12px; }
+.subjects { margin: 44px 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+.subjects__item { display: flex; flex-direction: column; gap: 4px; padding: 22px 22px; border-radius: 14px; background: var(--paper); border: 1px solid var(--line); border-top: 3px solid var(--green-mid); }
+.subjects__en { font-family: var(--serif); font-weight: 600; font-size: 20px; color: var(--green); }
+.subjects__kn { font-size: 16px; color: var(--saffron-text); }
+
+.glance__kn-title { margin: -6px 0 8px; font-size: 18px; font-weight: 600; color: var(--green); }
+.glance__value { display: flex; flex-direction: column; align-items: flex-end; text-align: right; gap: 2px; }
+.glance__kn { font-size: 14px; color: var(--muted); }
+
+.form__note { margin-top: -4px; color: var(--muted); }
+.btn--icon { display: inline-flex; align-items: center; gap: 10px; }
+.visit-card a { color: var(--on-dark); }
+.visit-card__actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
+.pill-link { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 8px 16px; border-radius: 999px; border: 1px solid var(--green-mid); text-decoration: none; font-weight: 600; }
+.visit-card .pill-link:hover { background: var(--gold); border-color: var(--gold); color: var(--green-dark); }
+
+@media (max-width: 720px) {
+  .topbar__inner span:last-child { display: inline-flex; }
+  .topbar__inner > span:first-child { display: none; }
+  .glance__row { flex-direction: column; gap: 4px; }
+  .glance__value { align-items: flex-start; text-align: left; }
+}
