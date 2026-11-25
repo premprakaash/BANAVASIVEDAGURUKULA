@@ -28,6 +28,7 @@ export default function Footer() {
             <Link to="/">Home</Link>
             <Link to="/about">About</Link>
             <Link to="/contact">Admissions &amp; Contact</Link>
+            <Link to="/contact#donate">Support / Seva</Link>
           </div>
           <div className="footer__col footer__col--wide">
             <p className="footer__label">VISIT</p>

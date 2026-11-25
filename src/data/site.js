@@ -30,6 +30,16 @@ export const isSet = (value) => Boolean(value) && !String(value).trim().startsWi
 export const whatsappLink = (text = '') =>
   `https://wa.me/${site.whatsappNumber}${text ? `?text=${encodeURIComponent(text)}` : ''}`;
 
+// Payment / seva details (from the gurukula's Union Bank BharatQR)
+export const payment = {
+  upiId: '37525901@ubin',
+  upiName: 'MADHUKESHVARA VEDA VIDY',
+  payeeName: 'Shri Uma Madhukeshvara Veda Vidya Gurukula',
+  bank: 'Union Bank of India',
+  qrImage: `${import.meta.env.BASE_URL}images/upi-qr.svg`,
+  upiLink: 'upi://pay?pa=37525901@ubin&pn=MADHUKESHVARA%20VEDA%20VIDY&cu=INR',
+};
+
 // Academic education (ಲೌಕಿಕ ವಿದ್ಯೆ) taught alongside Vedic education
 export const academicSubjects = [
   { en: 'English', kn: 'ಇಂಗ್ಲಿಷ್' },

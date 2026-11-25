@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SectionTitle from '../components/SectionTitle.jsx';
 import { site, images, admissions, isSet, whatsappLink } from '../data/site.js';
+import Donate from '../components/Donate.jsx';
 import { PhoneIcon, WhatsAppIcon, YouTubeIcon, InstagramIcon } from '../components/Icons.jsx';
 
 const steps = [
@@ -151,6 +152,8 @@ export default function Contact() {
           </div>
         </div>
       </section>
+
+      <Donate />
     </>
   );
 }

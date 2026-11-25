@@ -172,6 +172,7 @@ export default function Home() {
           <div className="btn-row">
             <Link to="/contact#enquiry" className="btn btn--green btn--lg">Start your enquiry</Link>
             <Link to="/contact" className="btn btn--outline-green btn--lg">Plan a visit</Link>
+            <Link to="/contact#donate" className="btn btn--outline-green btn--lg">Support / Seva</Link>
           </div>
         </div>
       </section>
