@@ -64,7 +64,7 @@ export default function Home() {
           <div className="split__text">
             <SectionTitle eyebrow={h.welcomeEyebrow} title={h.welcomeTitle} />
             <p className="body-lg">{h.welcomeText}</p>
-            <Link to="/about" className="text-link">
+            <Link to="/about#acharya" className="text-link">
               {h.welcomeLink} <ArrowIcon />
             </Link>
           </div>

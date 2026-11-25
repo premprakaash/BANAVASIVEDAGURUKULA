@@ -16,8 +16,8 @@ export const site = {
     'https://maps.google.com/maps?q=Uma+Madhukeshvara+Veda+Vidya+Gurukula,+G2M8%2BWW5,+near+Madhukeshwara+Temple,+Banavasi,+Karnataka+581318&z=16&output=embed',
   mapLink: 'https://maps.app.goo.gl/LFSEqXAYoLThxtPZA',
   visitingHours: '[Days and time]',
-  foundedYear: '[YEAR]',
-  acharyaName: '[ACHARYA NAME]',
+  foundedYear: '2020',
+  acharyaName: 'Acharya Madhusoodan D. Bhat', // shown text comes from strings.js (EN + Kannada)
   veda: 'Krishna Yajurveda',
   shakha: 'Taittiriya Shakha',
   students: '[XX]',
@@ -50,5 +50,6 @@ export const images = {
   logo: `${base}images/logo.jpg`,
   temple: `${base}images/temple.jpg`,
   deity: `${base}images/madhukeshwara-deity.jpg`,
+  acharya: `${base}images/acharya.jpg`,
   group: `${base}images/gurukula-group.jpg`,
 };
