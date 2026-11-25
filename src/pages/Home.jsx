@@ -25,7 +25,6 @@ export default function Home() {
     { value: h.stats.shakhaValue, label: h.stats.shakha },
     { value: fill(h.stats.ageValue, { age: site.ageRange }), label: h.stats.age },
     { value: site.admissionYear, label: h.stats.year },
-    { value: '1800+', label: h.stats.history },
   ].filter((s) => isSet(s.value));
 
   return (
