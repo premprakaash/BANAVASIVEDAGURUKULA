@@ -3,7 +3,7 @@
 Gallery photos and videos are kept in `media/gallery/` in this repo and served to visitors from a Cloudflare R2 bucket.
 
 - **Upload media to R2** (`.github/workflows/media-r2.yml`) copies `media/` to the bucket whenever files in `media/` change on `main`. You can also start it by hand: **Actions → Upload media to R2 → Run workflow**.
-- **CI/CD** builds the site with `VITE_MEDIA_BASE_URL` from **`.env.production`** in the repo, so the gallery knows where to load files from.
+- **CI/CD** builds the site with `VITE_MEDIA_BASE_URL` from **`.env`** in the repo, so the gallery knows where to load files from.
 
 Until `VITE_MEDIA_BASE_URL` is filled in, the Gallery page shows "Photos and videos are coming soon".
 
@@ -36,8 +36,8 @@ Repo → **Settings → Secrets and variables → Actions**
 | `R2_SECRET_ACCESS_KEY` | Secret Access Key from step 3 |
 | `R2_BUCKET` | bucket name, e.g. `banavasi-gurukula-media` |
 
-### 4b. Set the public address in `.env.production`
-Edit `.env.production` in the repo root and set the address from step 2, with no trailing slash:
+### 4b. Set the public address in `.env`
+Edit `.env` in the repo root and set the address from step 2, with no trailing slash:
 
 ```
 VITE_MEDIA_BASE_URL=https://pub-xxxxxxxx.r2.dev
@@ -45,7 +45,7 @@ VITE_MEDIA_BASE_URL=https://pub-xxxxxxxx.r2.dev
 
 ### 5. Run it
 1. **Actions → Upload media to R2 → Run workflow**, which uploads the files.
-2. Commit and push `.env.production`; CI/CD rebuilds the site with the gallery address.
+2. Commit and push `.env`; CI/CD rebuilds the site with the gallery address.
 
 Check one file in the browser, e.g. `https://media.banavasivedagurukula.org/gallery/yoga-class.mp4`.
 
