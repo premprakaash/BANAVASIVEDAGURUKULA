@@ -32,9 +32,7 @@ jobs:
         run: npm ci
 
       - name: Build
-        env:
-          # Public address of the R2 bucket that serves gallery media (repo variable MEDIA_BASE_URL)
-          VITE_MEDIA_BASE_URL: ${{ vars.MEDIA_BASE_URL }}
+        # Site settings come from .env.production in the repo
         run: npm run build
 
       - name: Upload build
