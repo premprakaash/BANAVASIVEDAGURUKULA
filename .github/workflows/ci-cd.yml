@@ -32,6 +32,7 @@ jobs:
         run: npm ci
 
       - name: Build
+        # Site settings come from .env in the repo
         run: npm run build
 
       - name: Upload build

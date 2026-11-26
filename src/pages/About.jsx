@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import SectionTitle from '../components/SectionTitle.jsx';
 import { site, images } from '../data/site.js';
+import { galleryItems, mediaUrl, mediaReady } from '../data/gallery.js';
 import { strings } from '../i18n/strings.js';
 import { useLang, fill } from '../i18n/LanguageContext.jsx';
 
@@ -242,9 +243,14 @@ export default function About() {
             <img className="gallery__main" src={images.group} alt="Vidyarthis and Acharyas together" />
             <div className="gallery__side">
               <img src={images.temple} alt="Temple courtyard in Banavasi" />
-              <div className="placeholder">{a.galleryPlaceholder}</div>
+              {mediaReady ? (
+                <img src={mediaUrl(galleryItems[0].file)} alt={galleryItems[0].caption[lang]} loading="lazy" />
+              ) : (
+                <img src={images.deity} alt="Shri Uma Madhukeshwara Devaru" loading="lazy" style={{ objectPosition: 'center 30%' }} />
+              )}
             </div>
           </div>
+          <Link to="/gallery" className="btn btn--green btn--lg gallery__more">{t.gallery.viewAll} →</Link>
         </div>
       </section>
     </>
