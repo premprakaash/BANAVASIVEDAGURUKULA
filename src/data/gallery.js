@@ -1,13 +1,24 @@
 // Gallery photos and videos.
 // Files live in the repo's media/gallery/ folder; the "Upload media to R2" GitHub Action copies them
-// to the Cloudflare R2 bucket, and the website loads them from MEDIA_BASE_URL (set as a repo variable).
+// to the Cloudflare R2 bucket.
+//
+// Where the website loads them from (first one that is set wins):
+//   1. MEDIA_BASE_URL in the server's .env  (/opt/gurukula/.env → served as /config.js) — change any time
+//   2. VITE_MEDIA_BASE_URL in the repo's .env (used at build time)
 //
 // To add an item: put the file (and, for a video, a .jpg poster frame) in media/gallery/,
 // then add an entry below. category: 'campus' | 'classes' | 'temple' | 'events'.
 
-const base = (import.meta.env.VITE_MEDIA_BASE_URL || '').replace(/\/+$/, '');
+const clean = (v) => {
+  const s = typeof v === 'string' ? v.trim() : '';
+  // ignore empty values and unreplaced template placeholders like ${MEDIA_BASE_URL}
+  return s && !s.includes('${') ? s.replace(/\/+$/, '') : '';
+};
 
-/** True when the R2 media address has been configured for this build. */
+const runtime = typeof window !== 'undefined' ? window.SITE_CONFIG || {} : {};
+const base = clean(runtime.mediaBaseUrl) || clean(import.meta.env.VITE_MEDIA_BASE_URL);
+
+/** True when the R2 media address has been configured. */
 export const mediaReady = Boolean(base);
 
 export const mediaUrl = (file) => `${base}/gallery/${file}`;

@@ -3,9 +3,9 @@
 Gallery photos and videos are kept in `media/gallery/` in this repo and served to visitors from a Cloudflare R2 bucket.
 
 - **Upload media to R2** (`.github/workflows/media-r2.yml`) copies `media/` to the bucket whenever files in `media/` change on `main`. You can also start it by hand: **Actions → Upload media to R2 → Run workflow**.
-- **CI/CD** builds the site with `VITE_MEDIA_BASE_URL` from **`.env`** in the repo, so the gallery knows where to load files from.
+- The website reads the media address at runtime from **`/opt/gurukula/.env` on the server** (served as `/config.js`), falling back to `VITE_MEDIA_BASE_URL` in the repo's `.env`.
 
-Until `VITE_MEDIA_BASE_URL` is filled in, the Gallery page shows "Photos and videos are coming soon".
+Until one of them is filled in, the Gallery page shows "Photos and videos are coming soon".
 
 ## One-time setup
 
@@ -36,16 +36,19 @@ Repo → **Settings → Secrets and variables → Actions**
 | `R2_SECRET_ACCESS_KEY` | Secret Access Key from step 3 |
 | `R2_BUCKET` | bucket name, e.g. `banavasi-gurukula-media` |
 
-### 4b. Set the public address in `.env`
-Edit `.env` in the repo root and set the address from step 2, with no trailing slash:
+### 4b. Set the public address in the server's `.env`
+On the VPS, edit `/opt/gurukula/.env` (setup: `deploy/gurukula/README.md`):
 
 ```
-VITE_MEDIA_BASE_URL=https://pub-xxxxxxxx.r2.dev
+MEDIA_BASE_URL=https://pub-xxxxxxxx.r2.dev
 ```
+
+Then run `cd /opt/gurukula && docker compose up -d`. The website reads it from `/config.js`, with no rebuild.
+(Alternatively, `VITE_MEDIA_BASE_URL` in the repo's `.env` is used if the server value is empty.)
 
 ### 5. Run it
 1. **Actions → Upload media to R2 → Run workflow**, which uploads the files.
-2. Commit and push `.env`; CI/CD rebuilds the site with the gallery address.
+2. Set `MEDIA_BASE_URL` in `/opt/gurukula/.env` on the server and run `docker compose up -d`.
 
 Check one file in the browser, e.g. `https://media.banavasivedagurukula.org/gallery/yoga-class.mp4`.
 
