@@ -1,0 +1,24 @@
+# nginx site for gurukula-web. ${MEDIA_BASE_URL} is filled in from .env when the container starts.
+server {
+    listen 80;
+    root /usr/share/nginx/html;
+    index index.html;
+
+    # Runtime settings for the website, built from the server's .env
+    location = /config.js {
+        default_type application/javascript;
+        add_header Cache-Control "no-store";
+        return 200 'window.SITE_CONFIG = { mediaBaseUrl: "${MEDIA_BASE_URL}" };\n';
+    }
+
+    # React Router: send /about, /gallery, /contact etc. to index.html
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    location /assets/ {
+        expires 1y;
+        add_header Cache-Control "public, immutable";
+        try_files $uri =404;
+    }
+}

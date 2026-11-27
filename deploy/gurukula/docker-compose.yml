@@ -1,0 +1,17 @@
+# gurukula-web: serves the built website and /config.js (from .env) behind nginx-proxy.
+# Lives on the server in /opt/gurukula/. After editing .env run:  docker compose up -d
+services:
+  gurukula-web:
+    image: nginx:1.27-alpine
+    container_name: gurukula-web
+    restart: unless-stopped
+    env_file: .env
+    volumes:
+      - /var/www/banavasivedagurukula.org:/usr/share/nginx/html:ro
+      - ./default.conf.template:/etc/nginx/templates/default.conf.template:ro
+    networks:
+      - proxy-net
+
+networks:
+  proxy-net:
+    external: true
