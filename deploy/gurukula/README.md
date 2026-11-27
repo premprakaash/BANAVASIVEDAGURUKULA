@@ -20,7 +20,7 @@ nano .env                                  # set MEDIA_BASE_URL
 
 docker stop gurukula-web && docker rm gurukula-web   # remove the old container
 docker compose up -d                                 # start the new one
-curl -s -H "Host: banavasivedagurukula.org" http://localhost/config.js --resolve banavasivedagurukula.org:80:127.0.0.1
+docker exec gurukula-web wget -qO- http://localhost/config.js   # shows your MEDIA_BASE_URL
 ```
 
 `nginx-proxy` needs no change: the new container has the same name (`gurukula-web`) and is on `proxy-net`.
